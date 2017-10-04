@@ -1,10 +1,13 @@
-" Vundle {{{
+" Vundle
+
+execute pathogen#infect()
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'tpope/vim-fugitive'
@@ -22,10 +25,13 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'gcmt/wildfire.vim'
+Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'pearofducks/ansible-vim'
+Bundle 'Valloric/YouCompleteMe'
 
 "Front End
 Plugin 'pangloss/vim-javascript'
@@ -34,23 +40,24 @@ Plugin 'miripiruni/CSScomb-for-Vim'
 
 "Color Schemes
 Plugin 'vim-scripts/wombat256.vim'
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()            " required
-" }}}
+"
 
-" Plugin Settings {{{
+" Plugin Settings
 let g:windowswap_map_keys = 0 "prevent default bindings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-" }}}
+"
 
-" Airline {{{
+" Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0 "change 0 to 1 if you have a powerline font
 set laststatus=2
 set t_Co=256
-" }}}
+"
 
-" NERDTree {{{
+" NERDTree
 let g:NERDTreeMapChangeRoot =  "`"
 
 nmap <Leader>] :NERDTreeTabsToggle<CR>
@@ -85,9 +92,9 @@ function! NERDTreeQuit()
   endif
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
-" }}}
+"
 
-" General {{{
+" General
 
 set nocompatible
 filetype off
@@ -128,9 +135,9 @@ set linespace=3
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-" }}}
+"
 
-" Some Useful Key Mappings {{{
+" Some Useful Key Mappings
 
 "Split swap
 nmap <Tab> :CtrlPBuffer<CR>
@@ -172,6 +179,6 @@ vnoremap < <<CR>gv
 map <Space>w <Plug>CamelCaseMotion_w
 map <Space>b <Plug>CamelCaseMotion_b
 map <Space>e <Plug>CamelCaseMotion_e
-" }}}
+"
 
 colorscheme wombat256mod
